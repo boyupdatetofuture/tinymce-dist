@@ -462,12 +462,18 @@ tinymce.PluginManager.add('image', function(editor) {
 
 			if (data.vspace) {
 				css['margin-top'] = css['margin-bottom'] = addPixelSuffix(data.vspace);
+			} else {
+				css['margin-top'] = css['margin-bottom'] = '';
 			}
 			if (data.hspace) {
 				css['margin-left'] = css['margin-right'] = addPixelSuffix(data.hspace);
+			} else {
+				css['margin-left'] = css['margin-right'] = '';
 			}
 			if (data.border) {
 				css['border-width'] = addPixelSuffix(data.border);
+			} else {
+				css['border-width'] = '';
 			}
 
 			win.find('#style').value(dom.serializeStyle(dom.parseStyle(dom.serializeStyle(css))));
@@ -523,6 +529,8 @@ tinymce.PluginManager.add('image', function(editor) {
 				}
 
 				data.style = editor.dom.serializeStyle(editor.dom.parseStyle(editor.dom.getAttrib(imgElm, 'style')));
+			}else{
+				data.style = 'float: left;';
 			}
 
 			// Advanced dialog shows general+advanced tabs
